@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sndyuk/mangle-css-class-webpack-plugin.svg?branch=master)](https://travis-ci.org/sndyuk/mangle-css-class-webpack-plugin)
+
 <div align="center">
   <a href="https://github.com/webpack/webpack">
     <img width="100" height="100"
