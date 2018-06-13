@@ -59,6 +59,8 @@ const testPlugin = (webpackConfig, expectedResults, done, expectErrors, expectWa
   });
 }
 
+const defaultCssClassRegExp = '[cl]-[a-z][a-zA-Z0-9_]*';
+
 describe('MangleCssClassPlugin', () => {
   beforeEach((done) => {
     rimraf(OUTPUT_DIR, done);
@@ -71,7 +73,10 @@ describe('MangleCssClassPlugin', () => {
         path: OUTPUT_DIR,
         filename: 'case1.js'
       },
-      plugins: [new MangleCssClassPlugin()]
+      plugins: [new MangleCssClassPlugin({
+        classNameRegExp: defaultCssClassRegExp,
+        log: true,
+      })]
     }, ["<p class=\\\"a\\\">l-a</p>"], done);
   });
 
@@ -82,7 +87,10 @@ describe('MangleCssClassPlugin', () => {
         path: OUTPUT_DIR,
         filename: 'case2.js'
       },
-      plugins: [new MangleCssClassPlugin()]
+      plugins: [new MangleCssClassPlugin({
+        classNameRegExp: defaultCssClassRegExp,
+        log: true,
+      })]
     }, ["<p class=\\\"a b a\\\"><div /><a class=\\\"b\\\">l-a</p>"], done);
   });
 });
