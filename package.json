@@ -26,5 +26,11 @@
   },
   "bugs": "https://github.com/sndyuk/mangle-css-class-webpack-plugin/issues",
   "homepage": "https://github.com/sndyuk/mangle-css-class-webpack-plugin",
-  "repository": "https://github.com/sndyuk/mangle-css-class-webpack-plugin.git"
+  "repository": "https://github.com/sndyuk/mangle-css-class-webpack-plugin.git",
+  "keywords": [
+    "Webpack",
+    "css",
+    "minify",
+    "mangle"
+  ]
 }
