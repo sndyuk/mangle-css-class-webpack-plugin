@@ -38,7 +38,10 @@ module.exports = {
 };
 ```
 
-This will replace class name in HTML, JavaScript, CSS files. e.g.
+This will replace class name matched regex in HTML, JavaScript, CSS files. Identify the class names not to match unexpected words since it replaces all words that are matched with the `classNameRegExp`.
+I suggest that your class names have specific prefix or suffix that identified as a class name.
+
+ e.g.
 
 ### Source code
 ```html
