@@ -68,10 +68,10 @@ describe('MangleCssClassPlugin', () => {
 
   it('replace a css class', (done) => {
     testPlugin({
-      entry: path.join(__dirname, 'fixtures/case1.js'),
+      entry: [path.join(__dirname, 'fixtures/case1.js')],
       output: {
         path: OUTPUT_DIR,
-        filename: 'case1.js'
+        filename: 'case1.js',
       },
       plugins: [new MangleCssClassPlugin({
         classNameRegExp: defaultCssClassRegExp,
@@ -80,17 +80,31 @@ describe('MangleCssClassPlugin', () => {
     }, ["<p class=\\\"a\\\">l-a</p>"], done);
   });
 
-  it('replace multiple css classes', (done) => {
+  it('replace multiple css classes with css and html', (done) => {
     testPlugin({
       entry: path.join(__dirname, 'fixtures/case2.js'),
       output: {
         path: OUTPUT_DIR,
         filename: 'case2.js'
       },
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+          },
+          {
+            test: /\.html$/,
+            use: {
+              loader: 'html-loader',
+            }
+          },
+        ]
+      },
       plugins: [new MangleCssClassPlugin({
         classNameRegExp: defaultCssClassRegExp,
         log: true,
       })]
-    }, ["<p class=\\\"a b a\\\"><div /><a class=\\\"b\\\">l-a</p>"], done);
+    }, [".a {\\\\n  width: '100%';\\\\n}", "<div class=\\\\\\\"a\\\\\\\">", "<p class=\\\"a b a\\\"><div /><a class=\\\"b\\\">l-a</p>"], done);
   });
 });
