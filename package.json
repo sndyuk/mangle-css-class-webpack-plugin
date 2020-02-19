@@ -10,14 +10,14 @@
     "index.js"
   ],
   "devDependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "css-loader": "^0.28.11",
     "html-loader": "^0.5.5",
-    "jasmine": "^3.1.0",
-    "rimraf": "^2.6.2",
+    "jasmine": "^3.5.0",
+    "rimraf": "^2.7.1",
     "standard-version": "^4.4.0",
     "style-loader": "^0.21.0",
-    "webpack": "^4.12.0"
+    "webpack": "^4.41.6"
   },
   "dependencies": {},
   "scripts": {
