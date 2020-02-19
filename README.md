@@ -3,7 +3,7 @@
 <div align="center">
   <a href="https://github.com/webpack/webpack">
     <img width="100" height="100"
-      src="https://webpack.js.org/assets/icon-square-small.svg">
+      src="https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png">
   </a>
   <h1>mangle-css-class-webpack-plugin</h1>
   <p>Minifies and obfuscates the class names in JavaScript, CSS, and HTML</p>
