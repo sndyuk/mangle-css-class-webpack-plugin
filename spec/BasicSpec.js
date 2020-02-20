@@ -7,6 +7,7 @@ if (webpackMajorVersion < 4) {
   var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 }
 const MangleCssClassPlugin = require('../index.js');
+const ClassGenerator = require('../lib/classGenerator');
 
 const OUTPUT_DIR = path.join(__dirname, '../dist');
 
@@ -106,5 +107,27 @@ describe('MangleCssClassPlugin', () => {
         log: true,
       })]
     }, [".a {\\\\n  width: '100%';\\\\n}", "<div class=\\\\\\\"a\\\\\\\">", "<p class=\\\"a b a\\\"><div /><a class=\\\"b\\\">l-a</p>"], done);
+  });
+
+  it('do not have dupplicate class name', (done) => {
+    const classes = new Set()
+    const classGenerator = new ClassGenerator()
+    const n = 40
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        for (let k = 0; k < n; k++) {
+          const className = classGenerator.generateClassName(`l-${i}-${j}-${k}`, { log: false })
+          classes.add(className.name)
+        }
+      }
+    }
+    console.log('Generated class size:', classes.size)
+    expect(classes.size).toBe(Math.pow(n, 3));
+    expect(classes).toContain('a');
+    expect(classes).toContain('_');
+    expect(classes).toContain('a9');
+    expect(classes).toContain('aaa');
+    expect(classes).toContain('_99');
+    done();
   });
 });
