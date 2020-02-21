@@ -48,7 +48,6 @@ const testPlugin = (webpackConfig, expectedResults, done, expectErrors, expectWa
       return done();
     }
     var content = fs.readFileSync(path.join(OUTPUT_DIR, webpackConfig.output.filename)).toString();
-    console.log(content)
     for (var i = 0; i < expectedResults.length; i++) {
       var expectedResult = expectedResults[i];
       if (expectedResult instanceof RegExp) {
