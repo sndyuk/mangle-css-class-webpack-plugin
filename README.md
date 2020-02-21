@@ -32,7 +32,6 @@ module.exports = {
   ...
   plugins: [
     new MangleCssClassPlugin({
-      // Modify `classNameRegExp` as your product. the sample regexp maches 'l-main', 'c-textbox', 'l-main__header', 'c-textbox__input', ...
       classNameRegExp: '[cl]-[a-z][a-zA-Z0-9_]*',
       log: true,
     }),
@@ -43,9 +42,18 @@ module.exports = {
 This will replace class name matched regex in HTML, JavaScript, CSS files. Identify the class names not to match unexpected words since it replaces all words that are matched with the `classNameRegExp`.
 I suggest that your class names have specific prefix or suffix that identified as a class name.
 
- e.g.
+### Options
+#### classNameRegExp
+e.g. `'(xs:|md:)?[cl]-[a-z][a-zA-Z0-9_]*'`  
+the sample regexp maches `l-main`, `c-textbox`, `md:l-main__header`, `xs:c-textbox__input`, and so on...
 
-### Source code
+#### ignorePrefix
+The prefix will be ignored from mangling.  
+e.g. `['xs:', 'md:']`  
+In this case, `xs:c-textbox__input` becomes `xs:a`.
+
+### Example
+#### Source code
 ```html
 <!-- html -->
 <main class='l-abc'>
@@ -66,7 +74,7 @@ document.querySelector('l-efg');
 }
 ```
 
-### Output code
+#### Output code
 
 ```html
 <!-- html -->

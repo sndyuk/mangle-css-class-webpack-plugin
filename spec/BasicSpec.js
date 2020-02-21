@@ -48,6 +48,7 @@ const testPlugin = (webpackConfig, expectedResults, done, expectErrors, expectWa
       return done();
     }
     var content = fs.readFileSync(path.join(OUTPUT_DIR, webpackConfig.output.filename)).toString();
+    console.log(content)
     for (var i = 0; i < expectedResults.length; i++) {
       var expectedResult = expectedResults[i];
       if (expectedResult instanceof RegExp) {
@@ -107,6 +108,35 @@ describe('MangleCssClassPlugin', () => {
         log: true,
       })]
     }, [".a {\\\\n  width: '100%';\\\\n}", "<div class=\\\\\\\"a\\\\\\\">", "<p class=\\\"a b a\\\"><div /><a class=\\\"b\\\">l-a</p>"], done);
+  });
+
+  it('ensure ignore custom classname prefixes', (done) => {
+    testPlugin({
+      entry: path.join(__dirname, 'fixtures/case3.js'),
+      output: {
+        path: OUTPUT_DIR,
+        filename: 'case3.js'
+      },
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+          },
+          {
+            test: /\.html$/,
+            use: {
+              loader: 'html-loader',
+            }
+          },
+        ]
+      },
+      plugins: [new MangleCssClassPlugin({
+        classNameRegExp: '(xs:|md:)?[cl]-[a-z][a-zA-Z0-9_]*',
+        ignorePrefix: ['xs:', 'md:'],
+        log: true,
+      })]
+    }, ["<div class=\\\\\\\"a xs:a md:b\\\\\\\">\\\\n      <p>l-a</p>\\\\n      <p>md:l-b</p>\\\\n    </div>"], done);
   });
 
   it('do not have dupplicate class name', (done) => {
