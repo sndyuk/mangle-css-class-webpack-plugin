@@ -1,6 +1,6 @@
 {
   "name": "mangle-css-class-webpack-plugin",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "license": "MIT",
   "description": "Minifies and obfuscates the class names in your existing JavaScript, CSS, and HTML without any modern css modules.",
   "author": "sndyuk",
