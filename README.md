@@ -47,21 +47,21 @@ I suggest that your class names have specific prefix or suffix that identified a
 e.g. `'(abc-|efg-)?[cl]-[a-z][a-zA-Z0-9_]*'`  
 the sample regexp maches `l-main`, `c-textbox`, `l-main__header`, `abc-textbox__input`, and so on...  
 
-If you want to use the back slash '\' on the regexp, use `\\\\\\\\\\\\\\\\` and `\\\\` to match class names contained both JS and CSS.
+If you want to use the back slash `\` on the regexp, use `\\\\\\\\\\\\\\\\` and `\\\\` to match class names contained both JS and CSS.
 
 #### ignorePrefix
 The prefix will be ignored from mangling.  
 e.g.
-```
+```js
 classNameRegExp: '(abc-|efg-)?[cl]-[a-z][a-zA-Z0-9_]*',
 ignorePrefixRegExp: ['abc-', 'efg-'],
 ```
 In this case, `abc-c-textbox__input` becomes `abc-a`.
 
 #### ignorePrefixRegExp
-Same behavior as ignorePrefix.
+Same behavior as ignorePrefix.  
 e.g.
-```
+```js
 classNameRegExp: '((hover|focus|xs|md|sm|lg|xl)(\\\\\\\\\\\\\\\\|\\\\)?:)*tw-[a-z_-][a-zA-Z0-9_-]*',
 ignorePrefixRegExp: '((hover|focus|xs|md|sm|lg|xl)(\\\\\\\\\\\\\\\\|\\\\)?:)*',
 ```
