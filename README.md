@@ -50,7 +50,7 @@ the sample regexp maches `l-main`, `c-textbox`, `l-main__header`, `abc-textbox__
 If you want to use the back slash `\` on the regexp, use `\\\\\\\\\\\\\\\\` and `\\\\` to match class names contained both JS and CSS.
 
 #### reserveClassName
-The class names won't be used.
+The class names won't be used.  
 e.g.
 ```js
 reserveClassName: ['fa', 'fas', 'far'],
@@ -61,7 +61,7 @@ The prefix will be ignored from mangling.
 e.g.
 ```js
 classNameRegExp: '(abc-|efg-)?[cl]-[a-z][a-zA-Z0-9_]*',
-ignorePrefixRegExp: ['abc-', 'efg-'],
+ignorePrefix: ['abc-', 'efg-'],
 ```
 In this case, `abc-c-textbox__input` becomes `abc-a`.
 
