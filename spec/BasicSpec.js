@@ -159,4 +159,30 @@ describe('MangleCssClassPlugin', () => {
     expect(classes).toContain('_99');
     done();
   });
+
+  it('do not use reserved class names', (done) => {
+    const reservedClassNames = ['b', 'd']
+    const classes = new Set()
+    const classGenerator = new ClassGenerator()
+    const n = 3
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        for (let k = 0; k < n; k++) {
+          const className = classGenerator.generateClassName(`l-${i}-${j}-${k}`, {
+            reserveClassName: reservedClassNames,
+            log: true
+          })
+          classes.add(className.name)
+        }
+      }
+    }
+    console.log('Generated class size:', classes.size)
+    expect(classes.size).toBe(Math.pow(n, 3));
+    expect(classes).toContain('a');
+    expect(classes).not.toContain('b');
+    expect(classes).toContain('c');
+    expect(classes).not.toContain('d');
+    expect(classes).toContain('e');
+    done();
+  });
 });
