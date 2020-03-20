@@ -185,4 +185,16 @@ describe('MangleCssClassPlugin', () => {
     expect(classes).toContain('e');
     done();
   });
+
+  it('ignore escape char in class name', (done) => {
+    const classGenerator = new ClassGenerator()
+    const classNameWithEscape = classGenerator.generateClassName(`l-\\/a\\/b`, {
+      log: true
+    })
+    const classNameWithoutEscape = classGenerator.generateClassName(`l-/a/b`, {
+      log: true
+    })
+    expect(classNameWithEscape.name).toBe(classNameWithoutEscape.name);
+    done();
+  });
 });
