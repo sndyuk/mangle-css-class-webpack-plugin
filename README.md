@@ -69,8 +69,8 @@ In this case, `abc-c-textbox__input` becomes `abc-a`.
 Same behavior as ignorePrefix.  
 e.g.
 ```js
-classNameRegExp: '((hover|focus|xs|md|sm|lg|xl)(\\\\\\\\\\\\\\\\|\\\\)?:)*tw-[a-z_-][a-zA-Z0-9_-]*',
-ignorePrefixRegExp: '((hover|focus|xs|md|sm|lg|xl)(\\\\\\\\\\\\\\\\|\\\\)?:)*',
+classNameRegExp: '((hover|focus|xs|md|sm|lg|xl)[\\\\]*:)*tw-[a-z_-][a-zA-Z0-9_-]*',
+ignorePrefixRegExp: '((hover|focus|xs|md|sm|lg|xl)[\\\\]*:)*',
 ```
 In this case, `hover\:xs\:c-textbox__input` becomes `hover\:xs\:a`.
 
