@@ -2,4 +2,4 @@
 /dist/
 npm-debug.log
 .project
-
+.DS_Store
