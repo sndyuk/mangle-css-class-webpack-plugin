@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.12](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v4.0.11...v4.0.12) (2021-03-29)
+
 ### [4.0.11](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v4.0.10...v4.0.11) (2020-05-29)
 
 ### [4.0.10](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v4.0.9...v4.0.10) (2020-03-20)
