@@ -1,7 +1,7 @@
 var path = require('path');
 var fs = require('fs');
-var webpack = require('webpack');
 var rimraf = require('rimraf');
+var webpack = require('webpack');
 var webpackMajorVersion = Number(require('webpack/package.json').version.split('.')[0]);
 if (webpackMajorVersion < 4) {
   var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
@@ -196,5 +196,29 @@ describe('MangleCssClassPlugin', () => {
     })
     expect(classNameWithEscape.name).toBe(classNameWithoutEscape.name);
     done();
+  });
+
+  it('override class name generator', (done) => {
+    testPlugin({
+      entry: [path.join(__dirname, 'fixtures/case4.js')],
+      output: {
+        path: OUTPUT_DIR,
+        filename: 'case4.js',
+      },
+      plugins: [new MangleCssClassPlugin({
+        classNameRegExp: defaultCssClassRegExp,
+        log: true,
+        classGenerator: (original, opts, context) => {
+          if (!context.id) {
+            context.id = 1;
+          }
+          if (original.startsWith('c-')) {
+            const className = `c${context.id}`;
+            context.id++;
+            return className;
+          }
+        }
+      })]
+    }, ["<p class=\\\"c1\\\">hoge-a<div class=\\\"b c1\\\">CASE 4</div></p>"], done);
   });
 });

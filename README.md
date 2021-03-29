@@ -74,6 +74,19 @@ ignorePrefixRegExp: '((hover|focus|xs|md|sm|lg|xl)[\\\\]*:)*',
 ```
 In this case, `hover\:xs\:c-textbox__input` becomes `hover\:xs\:a`.
 
+#### classGenerator
+Override the default class name generator.  
+
+```js
+// original: original class name
+// opts: options of the plugin
+// context: own context of the class generator(initial value is just an empty object)
+classGenerator: (original, opts, context) => {
+  // return custom generated class name.
+  // Or return undefined if you want to leave it to the original behavior.
+}
+```
+
 ### Example
 #### Source code
 ```html
