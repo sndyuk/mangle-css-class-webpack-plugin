@@ -1,12 +1,11 @@
 [![Build Status](https://travis-ci.org/sndyuk/mangle-css-class-webpack-plugin.svg?branch=master)](https://travis-ci.org/sndyuk/mangle-css-class-webpack-plugin)
-
 <div align="center">
   <a href="https://github.com/webpack/webpack">
     <img width="100" height="100"
       src="https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png">
   </a>
   <h1>mangle-css-class-webpack-plugin</h1>
-  <p>Minifies and obfuscates the class names in JavaScript, CSS, and HTML</p>
+  <p>Minifies and obfuscates the class names in JavaScript, CSS, and HTML. WORKS ONLY WITH WEBPACK 5!</p>
 </div>
 
 <h2 align="center">Install</h2>
