@@ -4,20 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [5.0.4](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v5.0.3...v5.0.4) (2021-11-29)
 
-
-### Bug Fixes
-
-* use right methods ([ca40bf2](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/ca40bf25c75cdc197d57e7031b8f99ac0b012a91))
-
-### [5.0.3](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v4.0.12...v5.0.3) (2021-11-29)
-
-
-### Bug Fixes
-
-* adapt to webpack 5 ([5f76d5b](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/5f76d5b86abbc667f8b1a04b628cff0dee461e61))
-* **plugin:** use webpack 5 processAssets hook ([cf16845](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/cf16845d7915ea9ba77d412dc9df63ac8f424c88))
-
-### [5.0.2](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v5.0.1...v5.0.2) (2021-11-29)
+- use right methods ([ca40bf2](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/ca40bf25c75cdc197d57e7031b8f99ac0b012a91))
+- adapt to webpack 5 ([5f76d5b](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/5f76d5b86abbc667f8b1a04b628cff0dee461e61))
+- **plugin:** use webpack 5 processAssets hook ([cf16845](https://github.com/sndyuk/mangle-css-class-webpack-plugin/commit/cf16845d7915ea9ba77d412dc9df63ac8f424c88))
 
 ### [4.0.12](https://github.com/sndyuk/mangle-css-class-webpack-plugin/compare/v4.0.11...v4.0.12) (2021-03-29)
 

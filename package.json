@@ -1,5 +1,5 @@
 {
-  "name": "@achipiga1/mangle-css-class-webpack-plugin",
+  "name": "mangle-css-class-webpack-plugin",
   "version": "5.0.4",
   "license": "MIT",
   "description": "Minifies and obfuscates the class names in your existing JavaScript, CSS, and HTML without any modern css modules.",
