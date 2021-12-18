@@ -6,7 +6,7 @@
       src="https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png">
   </a>
   <h1>mangle-css-class-webpack-plugin</h1>
-  <p>Minifies and obfuscates the class names in JavaScript, CSS, and HTML. WORKS ONLY WITH WEBPACK 5!</p>
+  <p>Minifies and obfuscates the class names in JavaScript, CSS, and HTML.</p>
 </div>
 
 <h2 align="center">Install</h2>
@@ -18,6 +18,9 @@
 ```bash
   yarn add --dev mangle-css-class-webpack-plugin
 ```
+
+The latest version WORKS ONLY with Webpack 5. For Webpack v4 & v3 support, install version 4.x(mangle-css-class-webpack-plugin@4.0.12).
+
 
 <h2 align="center">Usage</h2>
 
