@@ -133,3 +133,30 @@ document.querySelector('b');
 .a .b {
 }
 ```
+
+<h2 align="center">Tailwindcss mangling in Vue3 (with Webpack 5+)</h2>
+
+The plugin will generate optimized class name in HTML, JavaScript, Vue and CSS files.
+configure as follows:
+
+**vue.config.js**
+
+```js
+const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin');
+const myManglePlugin = new MangleCssClassPlugin({
+  classNameRegExp: '(bg|[-]*p[xylrbt]*|[-]*m[xylrbt]*|[-]*left|[-]*top|[-]*right|[-]*bottom|w|[-]*z|h|justify|overflow|border|max|flex|text|font|inline|rounded|from|to|via|contrast|brightness|leading|items|backdrop|shadow|duration|whitespace|self|cursor|transition|outline)-[a-z0-9_-]+|relative|static|absolute|shadow|flex|hidden|rounded|border',
+  log: true,
+  reserveClassName: ['fa', 'fas', 'far', 'p', 'm', 'z', 'pt', 'pb', 'px', 'py', 'pl', 'pr', 'mt', 'mb', 'mx', 'my', 'ml', 'mr', 'to'],
+  ignorePrefixRegExp: '.*tns.*|light[bB]ox'
+});
+
+module.exports = {
+  runtimeCompiler: true,
+  configureWebpack: {
+    plugins: [myManglePlugin],
+    devtool: false,
+    mode: 'production',
+  },
+};
+
+```
