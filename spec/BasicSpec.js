@@ -61,6 +61,8 @@ const testPlugin = (webpackConfig, expectedResults, done, expectErrors, expectWa
 }
 
 const defaultCssClassRegExp = '[cl]-[a-z][a-zA-Z0-9_]*';
+const defaultFileMatchRegExp = '.+\.js.*$|.+\.html.*$';
+const defaultFileExlusionRegExp = '$^';
 
 describe('MangleCssClassPlugin', () => {
   beforeEach((done) => {
@@ -76,6 +78,8 @@ describe('MangleCssClassPlugin', () => {
       },
       plugins: [new MangleCssClassPlugin({
         classNameRegExp: defaultCssClassRegExp,
+        fileMatchRegExp: defaultFileMatchRegExp,
+        fileExlusionRegExp: defaultFileExlusionRegExp,
         log: true,
       })]
     }, ["<p class=\\\"a\\\">l-a</p>"], done);
