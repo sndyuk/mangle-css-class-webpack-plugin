@@ -221,4 +221,27 @@ describe('MangleCssClassPlugin', () => {
       })]
     }, ["<p class=\\\"c1\\\">hoge-a<div class=\\\"b c1\\\">CASE 4</div></p>"], done);
   });
+
+  it('replace a css variable', (done) => {
+    testPlugin({
+      entry: path.join(__dirname, 'fixtures/case5.js'),
+      output: {
+        path: OUTPUT_DIR,
+        filename: 'case5.js'
+      },
+      module: {
+        rules: [
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+          },
+        ]
+      },
+      plugins: [new MangleCssClassPlugin({
+        classNameRegExp: defaultCssClassRegExp,
+        mangleCssVariables: true,
+        log: true,
+      })]
+    }, [":root {\\\\n  --a: 100%;\\\\n}\\\\n\\\\n.b {\\\\n  width: var(--a);"], done);
+  });
 });

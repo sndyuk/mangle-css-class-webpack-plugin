@@ -36,6 +36,7 @@ module.exports = {
   plugins: [
     new MangleCssClassPlugin({
       classNameRegExp: '[cl]-[a-z][a-zA-Z0-9_]*',
+      mangleCssVariables: true,
       log: true,
     }),
   ],
@@ -89,6 +90,9 @@ classGenerator: (original, opts, context) => {
   // Or return undefined if you want to leave it to the original behavior.
 }
 ```
+
+#### mangleCssVariables
+When truthy, the plugin will also mangle CSS variables (custom properties) whose name is matching the same ``classNameRegExp``. Disabled by default.
 
 ### Example
 #### Source code
