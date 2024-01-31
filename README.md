@@ -43,8 +43,8 @@ module.exports = {
 };
 ```
 
-This will replace class name matched regex in HTML, JavaScript, CSS files. Identify the class names not to match unexpected words since it replaces all words that are matched with the `classNameRegExp`.
-I suggest that your class names have specific prefix or suffix that identified as a class name.
+This replaces class names matched regex in HTML, JavaScript, CSS files. Define the class names not to match unexpected words since it replaces all words that are matched with the `classNameRegExp`.
+We suggest that **your class names have specific prefix or suffix that can be identified as class name**.
 
 ### Options
 #### classNameRegExp
