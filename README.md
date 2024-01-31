@@ -24,7 +24,7 @@ The latest version WORKS ONLY with Webpack 5. For Webpack v4 & v3 support, insta
 
 <h2 align="center">Usage</h2>
 
-The plugin will generate optimized class name in HTML, JavaScript, and CSS files.
+The plugin generates optimized class name in HTML, JavaScript, and CSS files.
 configure as follows:
 
 **webpack.config.js**
@@ -50,8 +50,6 @@ We suggest that **your class names have specific prefix or suffix that can be id
 #### classNameRegExp
 e.g. `'(abc-|efg-)?[cl]-[a-z][a-zA-Z0-9_]*'`  
 the sample regexp maches `l-main`, `c-textbox`, `l-main__header`, `abc-textbox__input`, and so on...  
-
-If you want to use the back slash `\` on the regexp, use `[\\\\]*` to match class names contained both JS(`\\\\`) and CSS(`\\\\\\\\\\\\\\\\`).
 
 #### reserveClassName
 The class names won't be used.  
